@@ -1,0 +1,56 @@
+.outer-div {
+    height: 25rem;
+}
+
+.outer-div img {
+    position: relative;
+    object-fit: contain;
+    min-width: 100%;
+    height: 25rem;
+    background-color: #f6efe9;
+}
+
+.backgroundImage {
+    opacity: 0.5;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+}
+
+.wrap {
+    overflow: hidden;
+    position: relative;
+}
+
+.inner-wrap {
+    position: relative;
+}
+
+.header-text {
+    font-family: 'Arvo', serif;
+    font-size: 70px;
+    color: #000000;
+    text-shadow: 3px 3px white;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.vegetable-image {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+    border: 3px solid black;
+}
+
+.border {
+    border: 1px solid black;
+}
+
+.order {
+    display: none;
+}

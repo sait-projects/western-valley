@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="wvf-main.css" />
+    <script src="wvf.js"></script>
+
+    <title>Western Valley Farms</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Home</a>
+        <button class="navbar-toggler" type="button">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Account</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="outer-div" id="section2">
+      <!-- image taken from unsplash -->
+      <img src="./images/western_valley_logo.png" class="" alt="farm" />
+      <div class="header-text">Western Valley Farms</div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="wrap">
+      <!-- image taken from unsplash -->
+      <img
+        class="backgroundImage"
+        src="./images/background.jpg"
+        alt="background-image"
+      />
+      <div class="container mt-5 inner-wrap">
+        <form
+          id="myForm"
+          name="form"
+          class="row justify-content-center needs-validation"
+          onsubmit="return false"
+        >
+          <div class="col-8">
+            <div class="col-md-8 mx-auto mt-5">
+              <h4>Today is: <span id="dtfield"></span></h4>
+            </div>
+            <div class="col-md-8 mx-auto">
+              <label for="firstName" class="form-label">Client Name</label>
+              <input
+                onblur="validateFirst()"
+                type="text"
+                class="form-control"
+                id="firstName"
+                name="firstName"
+                value=""
+                pattern="[A-Za-z- ]+"
+                required
+              />
+              <div id="firstNameGood" class="valid-feedback">Looks good!</div>
+              <div id="firstNameBad" class="invalid-feedback">
+                Please enter a valid Name
+              </div>
+            </div>
+            <div class="col-md-8 mx-auto pb-1">
+              <label for="address" class="form-label">Address</label>
+              <input
+                onblur="validateAddress()"
+                type="text"
+                class="form-control"
+                id="address"
+                name="address"
+                value=""
+                pattern="^[a-zA-Z0-9- ]+$"
+                required
+              />
+              <div class="valid-feedback">Looks good!</div>
+              <div class="invalid-feedback">Please enter a valid Address</div>
+            </div>
+            <div class="col-md-8 mx-auto">
+              <label for="postalCode" class="form-label">Postal Code</label>
+              <input
+                onblur="validatePostalCode()"
+                type="text"
+                class="form-control"
+                id="postalCode"
+                name="postal"
+                placeholder="L9L9L9"
+                pattern="[a-zA-Z][0-9][a-zA-Z][0-9][a-zA-Z][0-9]"
+                required
+              />
+              <div class="valid-feedback">Looks good!</div>
+              <div class="invalid-feedback">
+                Please enter a valid Postal Code
+              </div>
+            </div>
+            <div class="col-md-8 mx-auto">
+              <div class="row">
+                <div class="col-9">
+                  <label for="telephone" class="form-label">Telephone</label>
+                  <input
+                    onblur="validatePhone()"
+                    type="text"
+                    class="form-control"
+                    id="telephone"
+                    name="phone"
+                    placeholder="xxx-xxx-xxxx"
+                    pattern="\d{3}[\-]\d{3}[\-]\d{4}"
+                    required
+                  />
+                  <div class="valid-feedback">Looks good!</div>
+                  <div class="invalid-feedback">
+                    Please enter a valid Phone number
+                  </div>
+                </div>
+                <div class="col-3 mt-4">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="phoneNumber"
+                      id="business"
+                    />
+                    <label class="form-check-label" for="business">
+                      Business
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="phoneNumber"
+                      id="home"
+                      checked
+                    />
+                    <label class="form-check-label" for="home"> Home </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8 mx-auto">
+              <label for="email" class="form-label">Email</label>
+              <input
+                onblur="validateEmail()"
+                type="text"
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="yourName@gmail.com"
+                pattern="^[a-zA-Z0-9_.-]+@[a-zA-Z]+[\.][a-zA-Z]{2,}$"
+                required
+              />
+              <div class="valid-feedback">Looks good!</div>
+              <div class="invalid-feedback">Please enter a valid Email</div>
+            </div>
+            <div class="col-md-8 mx-auto mt-3">
+              <div class="row ml-3">
+                <div class="col-4 form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="method"
+                    id="pickup"
+                    checked
+                  />
+                  <label class="form-check-label" for="pickup"> Pickup </label>
+                </div>
+                <div class="col-4 form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="method"
+                    id="delivery"
+                  />
+                  <label class="form-check-label" for="delivery">
+                    Delivery
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div id="orderSection" style="display: none">
+              <br />
+              <br />
+              <h2>Order Summary</h2>
+              <hr />
+              <div>
+                <p>
+                  <span id="order"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="section2 mt-5">
+            <div class="container">
+              <div
+                class="row align-items-center text-center"
+                style="border-bottom: 2px solid black"
+              >
+                <div class="col-6">
+                  <h3>Hamper Name</h3>
+                </div>
+                <div class="col-3">
+                  <h3>Quantity</h3>
+                </div>
+                <div class="col-3">
+                  <h3>Price</h3>
+                </div>
+              </div>
+              <div class="row align-items-center text-center mt-2">
+                <div class="col-6">
+                  <!-- images taken from unsplash -->
+                  <img
+                    class="vegetable-image"
+                    src="./images/vegetable2.jpg"
+                    alt="vegetables"
+                  />
+                  <h5>Vegetable Hamper</h5>
+                </div>
+                <div class="col-3">
+                  <div class="input-group mb-3">
+                    <input
+                      name="Vegetable Hamper"
+                      type="number"
+                      min="0"
+                      value="0"
+                      class="form-control"
+                      id="hamper1"
+                    />
+                    <span class="input-group-text" onclick="add('hamper1')">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-arrow-up"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"
+                        />
+                      </svg>
+                    </span>
+                    <span class="input-group-text" onclick="minus('hamper1')">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-arrow-down"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <h4>20Kg: $30.00</h4>
+                </div>
+              </div>
+              <div class="row align-items-center text-center mt-2">
+                <div class="col-6">
+                  <!-- images taken from unsplash -->
+                  <img
+                    class="vegetable-image"
+                    src="./images/fruit.jpg"
+                    alt="fruits"
+                  />
+                  <h5>Fruit Hamper</h5>
+                </div>
+                <div class="col-3">
+                  <div class="input-group mb-3">
+                    <input
+                      name="Fruit Hamper"
+                      type="number"
+                      min="0"
+                      value="0"
+                      class="form-control"
+                      id="hamper2"
+                    />
+                    <span class="input-group-text" onclick="add('hamper2')">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-arrow-up"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"
+                        />
+                      </svg>
+                    </span>
+                    <span class="input-group-text" onclick="minus('hamper2')">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-arrow-down"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <h4>10Kg: $20.00</h4>
+                </div>
+              </div>
+              <div class="row align-items-center text-center mt-2">
+                <div class="col-6">
+                  <!-- images taken from unsplash -->
+                  <img
+                    class="vegetable-image"
+                    src="./images/chicken.jpg"
+                    alt="chicken"
+                  />
+                  <h5>Fresh Chicken</h5>
+                </div>
+                <div class="col-3">
+                  <div class="input-group mb-3">
+                    <input
+                      name="Fresh Chicken"
+                      type="number"
+                      min="0"
+                      value="0"
+                      class="form-control"
+                      id="hamper3"
+                    />
+                    <span class="input-group-text">/Kg</span>
+                    <span class="input-group-text" onclick="add('hamper3')">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-arrow-up"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"
+                        />
+                      </svg>
+                    </span>
+                    <span class="input-group-text" onclick="minus('hamper3')">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-arrow-down"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <h4>$4/Kg</h4>
+                </div>
+              </div>
+              <div
+                class="row align-items-center text-center mt-2 pb-2"
+                style="border-bottom: 2px solid black"
+              >
+                <div class="col-6">
+                  <!-- images taken from unsplash -->
+                  <img
+                    class="vegetable-image"
+                    src="./images/pork.jpg"
+                    alt="pork"
+                  />
+                  <h5>Pork</h5>
+                </div>
+                <div class="col-3">
+                  <div class="input-group mb-3">
+                    <input
+                      name="Pork"
+                      type="number"
+                      min="0"
+                      value="0"
+                      class="form-control"
+                      id="hamper4"
+                    />
+                    <span class="input-group-text">/Kg</span>
+                    <span class="input-group-text" onclick="add('hamper4')">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-arrow-up"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"
+                        />
+                      </svg>
+                    </span>
+                    <span class="input-group-text" onclick="minus('hamper4')">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-arrow-down"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <h4>$5/Kg</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 mt-3 pb-5">
+            <button
+              type="submit"
+              class="btn btn-danger btn-lg btn-block"
+              onclick="onSubmit()"
+            >
+              SUBMIT
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
